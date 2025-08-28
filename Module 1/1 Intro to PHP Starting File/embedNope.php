@@ -9,9 +9,9 @@
     <title>Make Your Instructor Cry</title>
 </head>
 <body>
-    <p><?= "<span>WAT?!?</span>" ?></p>
-    <p><?= "<a href='" . $href ."'>" . $title . "</a>" ?></p>
-    <p><a href="<?= $href ?>"><?= $title ?></a></p>
+    <p><span><?= "WAT?!?" ?></span></p>
+    <p><?= "<a href='" . $href ."'>" . $title . "</a>" ?></p>   <!-- DON'T DO THIS   -->
+    <p><a href="<?= $href ?>"><?= $title ?></a></p>     <!-- Good example of PHP in HTML -->
 </body>
 </html>
 

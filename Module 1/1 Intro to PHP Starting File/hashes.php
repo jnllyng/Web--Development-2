@@ -15,4 +15,18 @@
         echo "<p>{$actor} played the role of Captain {$captain}.</p>";
     }
     
+    // An array of hashes
+    $employees = [
+                ['name' => 'Leia Organa',
+                'position' => 'Rebel scum'],
+                ['name' => 'Elly Yang',
+                'position' => 'Student']
+                ];
+    echo "<p>{$employees[1]['name']} is {$employees[1]['position']}.</p>";
+
+    foreach ($employees as $employee){
+        echo"<p>{$employee['name']} is {$employee['position']}.</p>";
+    }
+
+    
 ?>
