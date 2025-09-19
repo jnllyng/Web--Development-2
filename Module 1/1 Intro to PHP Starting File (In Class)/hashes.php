@@ -28,5 +28,40 @@
         echo"<p>{$employee['name']} is {$employee['position']}.</p>";
     }
 
+    $music_bands = [
+    [
+        'leader'   => 'Alice Johnson',
+        'bandname' => 'The Rockers',
+        'members'  => [
+            ['name'=>'Tom', 'instrument'=>'guitar'],
+            ['name'=>'Lily','instrument'=>'drums'],
+            ['name'=>'Sam', 'instrument'=>'bass']
+        ],
+        'concerts_played' => 12,
+        'concerts_missed' => 1
+    ],
+    [
+        'leader'   => 'Bob Lee',
+        'bandname' => 'Jazz Masters',
+        'members'  => [
+            ['name'=>'Clara','instrument'=>'piano'],
+            ['name'=>'Dave', 'instrument'=>'saxophone'],
+            ['name'=>'Eva',  'instrument'=>'trumpet']
+        ],
+        'concerts_played' => 8,
+        'concerts_missed' => 3
+    ]
+];
+
+// 여기에 foreach를 사용해 밴드 정보와 멤버 정보를 출력하세요.
+foreach($music_bands as $current_music_bands){
+    echo "<p>{$current_music_bands['leader']} is a team leader in {$current_music_bands['bandname']}.</p>";
+    echo "<p>The team has played {$current_music_bands['concerts_played']} times and missed {$current_music_bands['concerts_missed']} time.</p>";
+    foreach($current_music_bands['members'] as $current_members){
+        echo"<p>{$current_members['name']} plays {$current_members['instrument']}.</p>";
+    }
+
+}
+
     
 ?>
