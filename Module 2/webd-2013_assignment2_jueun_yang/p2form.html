@@ -2,8 +2,9 @@
 
     Assignment 2
     Name: Jueun Yang
-    Date: 2025-09-10
-    Description:
+    Date: 2025-09-20
+    Description: A web page for ordering electronics with form validation.
+        		 Validation errors are hidden as comments for a cleaner user interface.
 
 ------------------->
 <!DOCTYPE html>
@@ -164,17 +165,17 @@
 						<li>
 							<label for="fullname">Full Name</label>
 							<input id="fullname" name="fullname" type="text" />
-							<p class="shippingError error" id="fullname_error">* Required field</p>
+							<!-- <p class="shippingError error" id="fullname_error">* Required field</p> -->
 						</li>
 						<li>
 							<label for="address">Address</label>
 							<input id="address" name="address" type="text" />
-							<p class="shippingError error" id="address_error">* Required field</p>
+							<!-- <p class="shippingError error" id="address_error">* Required field</p> -->
 						</li>
 						<li>
 							<label for="city">City</label>
 							<input id="city" name="city" type="text" />
-							<p class="shippingError error" id="city_error">* Required field</p>
+							<!-- <p class="shippingError error" id="city_error">* Required field</p> -->
 						</li>
 						<li>
 							<label for="province">Province</label>
@@ -193,21 +194,21 @@
 								<option value="NU">Nunavut</option>
 								<option value="YT">Yukon</option>
 							</select>
-							<p class="shippingError error" id="province_error">* Required field</p>
+							<!-- <p class="shippingError error" id="province_error">* Required field</p> -->
 						</li>
 						<li>
 							<label for="postal">Postal Code</label>
 							<input id="postal" name="postal" type="text" />
-							<p class="shippingError error" id="postal_error">* Required field</p>
-							<p class="shippingError error" id="postalformat_error">* Invalid postal code</p>
+							<!-- <p class="shippingError error" id="postal_error">* Required field</p> -->
+							<!-- <p class="shippingError error" id="postalformat_error">* Invalid postal code</p> -->
 						</li>
 						<li>
 							<label for="email">Email</label>
 							<input id="email" name="email" type="text" />
-							<p class="shippingError error" id="email_error">* Required field</p>
-							<p class="shippingError error" id="emailformat_error">
+							<!-- <p class="shippingError error" id="email_error">* Required field</p> -->
+							<!-- <p class="shippingError error" id="emailformat_error">
 								* Invalid email address
-							</p>
+							</p> -->
 						</li>
 					</ul>
 				</div>
@@ -223,9 +224,9 @@
 								<label for="amex">AmEx</label>
 								<input id="mastercard" name="cardtype" type="radio" />
 								<label for="mastercard">Mastercard</label>
-								<p class="cardTypeError error" id="cardtype_error">
+								<!-- <p class="cardTypeError error" id="cardtype_error">
 									* You must choose a card type
-								</p>
+								</p> -->
 							</li>
 						</ul>
 					</fieldset>
@@ -236,7 +237,7 @@
 							<li>
 								<label for="cardname">Name on Card</label>
 								<input id="cardname" name="cardname" type="text" />
-								<p class="cardError error" id="cardname_error">* Required field</p>
+								<!-- <p class="cardError error" id="cardname_error">* Required field</p> -->
 							</li>
 							<li>
 								<label for="month">Expiry Date</label>
@@ -255,19 +256,25 @@
 									<option value="11">November</option>
 									<option value="12">December</option>
 								</select>
-								<select id="year" name="year"></select>
-								<p class="cardError error" id="month_error">
+								<select id="year" name="year">
+									<option value="2025">2025</option>
+									<option value="2026">2026</option>
+									<option value="2027">2027</option>
+									<option value="2028">2028</option>
+									<option value="2029">2029</option>
+								</select>
+								<!-- <p class="cardError error" id="month_error">
 									* You must choose a month
-								</p>
-								<p class="cardError error" id="expiry_error">* Invalid expiry date</p>
+								</p> -->
+								<!-- <p class="cardError error" id="expiry_error">* Invalid expiry date</p> -->
 							</li>
 							<li>
 								<label for="cardnumber">Card Number</label>
 								<input id="cardnumber" name="cardnumber" type="number" />
-								<p class="cardError error" id="cardnumber_error">* Required field</p>
-								<p class="cardError error" id="invalidcard_error">
+								<!-- <p class="cardError error" id="cardnumber_error">* Required field</p> -->
+								<!-- <p class="cardError error" id="invalidcard_error">
 									* Invalid card number
-								</p>
+								</p> -->
 							</li>
 						</ul>
 					</fieldset>
