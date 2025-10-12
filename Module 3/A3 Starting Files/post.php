@@ -4,56 +4,21 @@
 
     Name: Jueun Yang
     Date: 2025-09-29
-    Description:
+    Description: Display the form to create a new blog post.
 
 ****************/
 
 require('connect.php');
 require 'authenticate.php';
 
-$header = "Stung Eye - ";
+$header = "My Blog - ";
 $home = 'Home';
 $new_post = 'New Post';
-
-if ($_POST) {
-    $title = trim($_POST['title']);
-    $content = trim($_POST['content']);
-    $title_error = '';
-    $content_error = '';
-    if (strlen($title) < 1) {
-        $title_error = "Title must be at least 1 character long.";
-    } 
-    if(strlen($content) < 1) {
-        $content_error = "Content must be at least 1 character long.";
-    }
-    if(empty($title_error) && empty($content_error)) {
-        //  Sanitize user input to escape HTML entities and filter out dangerous characters.
-        $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $content = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        //  Build the parameterized SQL query and bind to the above sanitized values.
-        $query = "INSERT INTO blog_posts (title, content) VALUES (:title, :content)";
-        $statement = $db->prepare($query);
-
-        //  Bind values to the parameters
-        $statement->bindValue(':title', $title);
-        $statement->bindValue(':content', $content);
-
-        //  Execute the INSERT.
-        //  execute() will check for possible SQL injection and remove if necessary
-        if ($statement->execute()) {
-           header("Location: index.php");
-           exit;
-        } 
-    }
-}
-
-
 $blog = 'New Blog Post';
-$title = 'Title';
-$content = 'Content';
+$title_label = 'Title';
+$content_label = 'Content';
 $footer = "Copywrong 2025 - No Rights Reserved";
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,7 +31,6 @@ $footer = "Copywrong 2025 - No Rights Reserved";
 </head>
 
 <body>
-    <!-- Remember that alternative syntax is good and html inside php is bad -->
     <div id="wrapper">
         <div id="header">
             <h1><a href="index.php"><?= $header . $new_post ?></a></h1>
@@ -76,32 +40,22 @@ $footer = "Copywrong 2025 - No Rights Reserved";
             <li><a href="post.php" class='active'><?= $new_post ?></a></li>
         </ul>
         <div id="all_blogs">
-            <form action="post.php" method="post">
+            <form action="process_post.php" method="post">
                 <fieldset>
                     <legend><?= $blog ?></legend>
                     <p>
-                        <label for="title"><?= $title ?></label>
-                        <input name="title" id="title" />
-                        <?php if (!empty($title_error)): ?>
-                        <p class="error"><?= $title_error ?></p>
-                        <?php endif ?>
+                        <label for="title"><?= $title_label ?></label>
+                        <input name="title" id="title" value="" />
                     </p>
                     <p>
-                        <label for="content"><?= $content ?></label>
+                        <label for="content"><?= $content_label ?></label>
                         <textarea name="content" id="content"></textarea>
-                        <?php if(!empty($content_error)): ?>
-                        <p class="error"><?= $content_error ?></p>
-                        <?php endif ?>
                     </p>
-                    <p>
-                        <input type="submit" name="command" value="Create" />
-                    </p>
+                    <p><input type="submit" name="command" value="Create" /></p>
                 </fieldset>
             </form>
         </div>
-        <div id="footer">
-            <?= $footer ?>
-        </div>
+        <div id="footer"><?= $footer ?></div>
     </div>
 </body>
 

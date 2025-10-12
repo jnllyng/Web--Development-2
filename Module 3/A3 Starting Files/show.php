@@ -1,8 +1,16 @@
 <?php
 
+/*******w******** 
+
+    Name: Jueun Yang
+    Date: 2025-09-29
+    Description: Display a full blog post page
+
+****************/
+
 require('connect.php');
 
-$header = "Stung Eye - ";
+$header = "My Blog - ";
 $home = 'Home';
 $new_post = 'New Post';
 
@@ -12,7 +20,10 @@ $statement = $db->prepare($query);
 $statement->bindValue(':id', $id, PDO::PARAM_INT);
 $statement->execute();
 $row = $statement->fetch();
-
+if (!$row) {
+    header("Location: index.php");
+    exit;
+}
 $edit = 'edit';
 $footer = "Copywrong 2025 - No Rights Reserved";
 
@@ -57,3 +68,6 @@ $footer = "Copywrong 2025 - No Rights Reserved";
             <?= $footer ?>
         </div>
     </div>
+</body>
+
+</html>

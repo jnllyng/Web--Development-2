@@ -4,13 +4,16 @@
 
     Name: Jueun Yang
     Date: 2025-09-29
-    Description:
+    Description: Displays the main page of the blog website, 
+                 Connects to the database,
+                 Retrieves 5 most recent blog posts.
+
 
 ****************/
 
 require('connect.php');
 
-$header = "Stung Eye - Index";
+$header = "My Blog - Index";
 $home = 'Home';
 $new_post = 'New Post';
 $query = "SELECT * FROM blog_posts ORDER BY created_at DESC LIMIT 5";
