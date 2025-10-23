@@ -1,0 +1,41 @@
+<!-------w------------
+
+    Assignment 4
+    Name: Group 8
+    Date: 16/10/25
+    Description: Input form
+
+--------------------->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Search tool for Council Member expenses and library information">
+    <title>Council Members Expense Search</title>
+    <link rel="stylesheet" href="main1.css">
+  </head>
+  <body>
+    <h1>Council Member Expenses Library</h1>
+
+    <main>
+      <form id="searchForm" role="search">
+        <label for="name">Enter Council Member's Name:</label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          placeholder="e.g., Brian Mayes, Demi Sharma" 
+          required 
+          aria-required="true">
+        <button type="submit">Search</button>
+      </form>
+
+      <div id="results" aria-live="polite"></div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+

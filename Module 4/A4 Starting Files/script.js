@@ -3,52 +3,60 @@
     Assignment 4 Javascript
     Name: Jueun Yang
     Date: 2025-10-09
-    Description:
+    Description: Display results dynamically, and handle empty or error states.
 
 *********************/
 
-document.querySelector('#searchForm').addEventListener('submit', async function (e) {
-    e.preventDefault();
-    const treeName = document.querySelector('#treeName').value.trim();
-    const resultsDiv = document.querySelector('#results');
-    resultsDiv.innerHTML = '';
+document.querySelector("#search-form").addEventListener("submit", async function (e) {
+  e.preventDefault();
 
-    if (!treeName) {
-        resultsDiv.innerHTML = '<p>Please enter a tree name.</p>';
-        return;
+  let parkName = document.querySelector("#parkName").value.trim();
+  let results = document.querySelector("#results");
+  results.innerHTML = "";
+
+  if (!parkName) {
+    results.innerHTML = "<p>Please enter a valid park name or neighbourhood.</p>";
+    return;
+  }
+
+  const apiUrl = 'https://data.winnipeg.ca/resource/tx3d-pfxq.json?' +
+                 `$where=lower(park_name) LIKE lower('%${parkName}%')` +
+                 ` OR lower(neighbourhood) LIKE lower('%${parkName}%')` +
+                 '&$order=land_area_in_hectares DESC' +
+                 '&$limit=100';
+  const encodedURL = encodeURI(apiUrl);
+
+  try {
+    let response = await fetch(encodedURL);
+    if (!response.ok) throw new Error("Network response error");
+
+    let data = await response.json();
+
+    if (data.length == 0) {
+      results.innerHTML = `<p>No parks found for "${parkName}".</p>`;
+      return;
     }
 
-    const apiUrl = `https://data.winnipeg.ca/resource/hfwk-jp4h.json?$where=lower(common_name) like lower('%${treeName}%')&$order=diameter_at_breast_height DESC&$limit=100`;
-    const encodedURL = encodeURI(apiUrl);
-
-    try {
-        const response = await fetch(encodedURL);
-        const data = await response.json();
-
-        if (data.length === 0) {
-            resultsDiv.innerHTML = '<p>No trees found.</p>';
-            return;
-        }
-
-        data.forEach(item => {
-            const div = document.createElement('div');
-            div.classList.add('result-card');
-            div.innerHTML = `
-        <h3>${item.common_name}</h3>
-        <p><strong>Botanical Name:</strong> ${item.botanical_name || 'N/A'}</p>
-        <p><strong>Neighborhood:</strong> ${item.neighbourhood || 'N/A'}</p>
-        <p><strong>Diameter at Breast Height:</strong> ${item.diameter_at_breast_height || 'N/A'} cm</p>
-        <p><strong>Park:</strong> ${item.park || 'N/A'}</p>
-        <p><strong>Location Class:</strong> ${item.location_class || 'N/A'}</p>
-        <p><strong>Property Type:</strong> ${item.property_type || 'N/A'}</p>
-        <p><strong>Street:</strong> ${item.street || 'N/A'}</p>
-        <p><strong>Cross Streets:</strong> ${item.x_street_from || 'N/A'} - ${item.x_street_to || 'N/A'}</p>
+    data.forEach(item => {
+      let div = document.createElement("div");
+      div.classList.add("result-card");
+      div.innerHTML = `
+        <h3>${item.park_name || "Park name is not set."}</h3>
+        <p class="label">Neighbourhood: <span class="value">${item.neighbourhood || "N/A"}</span></p>
+        <p class="label">District: <span class="value">${item.district || "N/A"}</span></p>
+        <p class="label">Category: <span class="value">${item.park_category || "N/A"}</span></p>
+        <p class="label">Land Area (ha): <span class="value">${item.land_area_in_hectares || "N/A"}</span></p>
+        <p class="label">Water Area (ha): <span class="value">${item.water_area_in_hectares || "N/A"}</span></p>
+        <p class="label">Total Area (ha): <span class="value">${item.total_area_in_hectares || "N/A"}</span></p>
+        <p class="label">Address: <span class="value">${item.location_description || "N/A"}</span></p>
       `;
-            resultsDiv.appendChild(div);
-        });
+      results.appendChild(div);
+    });
 
-    } catch (err) {
-        resultsDiv.innerHTML = '<p>Error fetching data.</p>';
-        console.error(err);
-    }
+  } catch (err) {
+    console.error(err);
+    results.innerHTML = "<p>Error fetching data.</p>";
+  }
 });
+
+

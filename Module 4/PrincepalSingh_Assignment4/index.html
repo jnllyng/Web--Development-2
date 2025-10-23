@@ -1,0 +1,51 @@
+<!-------w------------ 
+Assignment 4 
+Name: Princepal Singh
+ Date:11-10-2025 
+ Description:Builds the web page layout for the Winnipeg Parks finder with user input fields and result section.
+ 
+ --------------------->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="main.css" />
+  <script defer src="script.js"></script>
+  <title>Winnipeg Parks Search</title>
+</head>
+<body>
+  <header>
+    <h1>City of Winnipeg Parks Search</h1>
+    <p>Use this tool to find parks and open spaces by name.</p>
+  </header>
+
+  <main>
+    <form id="searchForm">
+      <label for="parkName">Enter Park Name:</label>
+      <input type="text" id="parkName" name="parkName" placeholder="e.g., Assiniboine" required>
+
+      <label for="orderSelect">Sort By:</label>
+      <select id="orderSelect" name="orderSelect">
+        <option value="park_name ASC" selected>Park Name (A–Z)</option>
+        <option value="park_name DESC">Park Name (Z–A)</option>
+        <option value="neighbourhood ASC">Neighbourhood (A–Z)</option>
+        <option value="park_type ASC">Park Type (A–Z)</option>
+      </select>
+
+      <label for="limitSelect">Number of Results:</label>
+      <select id="limitSelect" name="limitSelect">
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100" selected>100</option>
+      </select>
+
+      <button type="submit">Search</button>
+    </form>
+
+    <section id="results"></section>
+  </main>
+</body>
+</html>

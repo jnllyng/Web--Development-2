@@ -1,0 +1,120 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #228B22, #32CD32);
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  color: white;
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 20px 0 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#searchForm {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#searchForm label {
+  font-size: 1.1rem;
+  color: #228B22;
+  font-weight: 600;
+}
+
+#searchForm input[type="text"] {
+  padding: 12px;
+  width: 100%;
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+#searchForm input[type="text"]:focus {
+  border-color: #228B22;
+  box-shadow: 0 0 0 3px rgba(34, 139, 34, 0.2);
+  outline: none;
+}
+
+#searchForm button[type="submit"] {
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  background: #228B22;
+  color: white;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+#searchForm button[type="submit"]:hover {
+  background: #32CD32;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(34, 139, 34, 0.3);
+}
+
+#results {
+  margin-top: 30px;
+  width: 100%;
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+#results p {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  margin: 0;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  color: #333;
+  border: 2px solid transparent;
+}
+
+#results p:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-color: #228B22;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin: 15px 0 20px;
+  }
+
+  #searchForm {
+    padding: 20px;
+    margin: 0 10px;
+  }
+
+  #results {
+    padding: 10px;
+  }
+}
