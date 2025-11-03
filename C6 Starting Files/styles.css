@@ -1,0 +1,14 @@
+body{
+	width: 500px;
+	margin: 10px auto;
+	font-family: Helvetica, sans;
+}
+
+section{
+	margin: 10px auto;
+	padding: 5px;
+	background-color: #000;
+	color: #FFF;
+	border: 1px solid black;
+	box-shadow: 1px 1px 3px red;
+}

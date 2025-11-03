@@ -33,9 +33,6 @@
         <br />
         <input type="submit" name="submit" value="Submit" />
     </form>
-    
-    <?php if ($_POST): ?>
-        <pre><?= print_r($_FILES) ?></pre> 
-    <?php endif ?>
+
 </body>
 </html>
