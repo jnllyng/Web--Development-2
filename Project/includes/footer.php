@@ -18,9 +18,9 @@
         </div>
         <nav class="footer-menu">
             <ul class="footer-menu-list">
-                <li class="footer-menu-item"><a href="index.php">Animal</a></li>
-                <li class="footer-menu-item"><a href="">Plant</a></li>
-                <li class="footer-menu-item"><a href="">Insect</a></li>
+                <li class="footer-menu-item"><a href="animal.php">Animal</a></li>
+                <li class="footer-menu-item"><a href="plant.php">Plant</a></li>
+                <li class="footer-menu-item"><a href="insect.php">Insect</a></li>
             </ul>
         </nav>
     </footer>

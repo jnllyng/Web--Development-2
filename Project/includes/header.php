@@ -18,9 +18,9 @@
         </div>
         <nav class="main-menu">
             <ul class="main-menu-list">
-                <li class="main-menu-item"><a href="index.php">Animal</a></li>
-                <li class="main-menu-item"><a href="">Plant</a></li>
-                <li class="main-menu-item"><a href="">Insect</a></li>
+                <li class="main-menu-item"><a href="animal.php">Animal</a></li>
+                <li class="main-menu-item"><a href="plant.php">Plant</a></li>
+                <li class="main-menu-item"><a href="insect.php">Insect</a></li>
                 <li class="main-menu-item">
                     <form method="get" action="search.php" class="sitesearch-form">
                         <label class="sr-only" for="sitesearch">Search</label>
