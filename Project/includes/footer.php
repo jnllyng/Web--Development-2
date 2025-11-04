@@ -1,27 +1,29 @@
-<?php 
+<?php
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manitoba Nature Archive</title>
-    <link rel="stylesheet" href="css\styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-    <footer>
-        <p>&copy; <?= date("Y"); ?> Manitoba Nature Archive. All rights reserved.</p>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="index.php">Manitoba Nature Archive</a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="">Animal</a></li>
-                <li><a href="">Plant</a></li>
-                <li><a href="">Insect</a></li>
+    <footer class="main-footer">
+        <div class="grid-container">
+            <p>&copy; <?= date("Y"); ?> <a href="index.php">Manitoba Nature Archive</a>. All rights reserved.</p>
+        </div>
+        <nav class="footer-menu">
+            <ul class="footer-menu-list">
+                <li class="footer-menu-item"><a href="index.php">Animal</a></li>
+                <li class="footer-menu-item"><a href="">Plant</a></li>
+                <li class="footer-menu-item"><a href="">Insect</a></li>
             </ul>
         </nav>
-</footer>
+    </footer>
 </body>
+
 </html>
