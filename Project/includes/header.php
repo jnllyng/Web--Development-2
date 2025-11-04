@@ -11,10 +11,10 @@
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <div class="logo">
+        <div class="logo">
                 <a href="index.php">Manitoba Nature Archive</a>
             </div>
+        <nav class="navbar">
             <ul class="nav-links">
                 <li><a href="">Animal</a></li>
                 <li><a href="">Plant</a></li>
