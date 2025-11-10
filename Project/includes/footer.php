@@ -16,13 +16,7 @@
         <div class="grid-container">
             <p>&copy; <?= date("Y"); ?> <a href="index.php">Manitoba Nature Archive</a>. All rights reserved.</p>
         </div>
-        <nav class="footer-menu">
-            <ul class="footer-menu-list">
-                <li class="footer-menu-item"><a href="animal.php">Animal</a></li>
-                <li class="footer-menu-item"><a href="plant.php">Plant</a></li>
-                <li class="footer-menu-item"><a href="insect.php">Insect</a></li>
-            </ul>
-        </nav>
+
     </footer>
 </body>
 

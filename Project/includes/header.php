@@ -1,35 +1,36 @@
 <?php
-
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manitoba Nature Archive</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-
-<body>
-    <header class="main-header">
-        <div class="grid-container">
-            <a href="index.php">Manitoba Nature Archive</a>
+<header class="main-header">
+    <div class="top-bar">
+        <div class="grid-container top-right">
+            <ul class="auth-links">
+                <?php if(isset($_SESSION['user_id'])): ?>
+                    <?php if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                        <li><a href="admin/dashboard.php">Admin Dashboard</a></li>
+                    <?php endif; ?>
+                    <li><a href="logout.php">Logout (<?= htmlspecialchars($_SESSION['username']); ?>)</a></li>
+                <?php else: ?>
+                    <li><a href="login.php">Login</a></li>
+                    <li><a href="register.php">Register</a></li>
+                <?php endif; ?>
+            </ul>
         </div>
+    </div>
+
+    <div class="grid-container main-nav">
+        <a href="index.php" class="logo">Manitoba Nature Archive</a>
         <nav class="main-menu">
             <ul class="main-menu-list">
                 <li class="main-menu-item"><a href="animal.php">Animal</a></li>
                 <li class="main-menu-item"><a href="plant.php">Plant</a></li>
-                <li class="main-menu-item"><a href="insect.php">Insect</a></li>
-                <li class="main-menu-item">
-                    <form method="get" action="search.php" class="sitesearch-form">
-                        <label class="sr-only" for="sitesearch">Search</label>
-                        <input id="sitesearch" class="sitesearch-input" type="text" name="q" placeholder="Search">
-                    </form>
-                </li>
+                <li class="main-menu-item"><a href="gallery.php">Photo</a></li>
             </ul>
         </nav>
-    </header>
-</body>
-
-</html>
+        <form method="get" action="search.php" class="sitesearch-form">
+            <input id="sitesearch" class="sitesearch-input" type="text" name="q" placeholder="Search">
+        </form>
+    </div>
+</header>

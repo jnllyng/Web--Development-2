@@ -1,0 +1,158 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: black;
+}
+
+nav {
+    text-align: center;
+    margin: 20px 0;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #2e7d32;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #1b5e20; 
+}
+
+nav a.active {
+    background-color: #1b5e20;
+}
+
+table {
+    width: 90%;
+    margin: 0 auto 30px;
+    border-collapse: collapse;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+table th, table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background-color: #2e7d32; 
+    color: white;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #e1f5fe;
+}
+
+a.edit-btn, a.delete-btn {
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+a.edit-btn {
+    background-color: #2e7d32; 
+}
+
+a.edit-btn:hover {
+    background-color: #1b5e20; 
+}
+
+a.delete-btn {
+    background-color: #e74c3c; 
+}
+
+a.delete-btn:hover {
+    background-color: #c0392b;
+}
+.back {
+    display: inline-block;
+    padding: 8px 15px;
+    color: white; 
+    text-decoration: none;
+    border-radius: 5px; 
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+form {
+    width: 50%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+form input[type="text"], form input[type="number"], form select {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #2e7d32;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #1b5e20;
+}
+
+.container {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.alert {
+    width: 50%;
+    margin: 10px auto;
+    padding: 12px 15px;
+    background-color: #f39c12;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.alert.success {
+    background-color: #2e7d32; 
+}
+
+.alert.error {
+    background-color: #e74c3c; 
+}

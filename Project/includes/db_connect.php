@@ -1,5 +1,5 @@
 <?php
-define('DB_DSN', 'mysql:host=localhost;dbname=maintoba-nature-archive');
+define('DB_DSN', 'mysql:host=localhost;dbname=manitoba-nature-archive;charset=utf8');
 define('DB_USER', 'ellyang');
 define('DB_PASS', 'maytheoddsbeeverinyourfavor!');
 
