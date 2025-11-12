@@ -1,5 +1,6 @@
 <?php
 session_start();
+require('../includes/authenticate.php');
 require('../includes/db_connect.php');
 
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
@@ -11,6 +12,10 @@ $category = isset($_GET['category']) ? $_GET['category'] : 'Animal';
 $stmt = $db->prepare("SELECT * FROM species WHERE category = ? ORDER BY species_id ASC");
 $stmt->execute([$category]);
 $species_list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$user_stmt = $db->prepare("SELECT * FROM users ORDER BY user_id ASC");
+$user_stmt->execute();
+$user_list = $user_stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,8 +30,9 @@ $species_list = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <nav>
     <a href="dashboard.php?category=Animal">Animal</a> |
     <a href="dashboard.php?category=Plant">Plant</a> |
-    <a href="species_create.php">+ Add New Species</a>
-    <a href="user_list.php">User</a>
+    <a href="user_list.php">User</a> |
+    <a href="species_create.php">+ Add New Species</a> |
+    <a href="../index.php">Go Back to Main Page</a>
 </nav>
 <table border="1" cellpadding="5" cellspacing="0">
     <thead>

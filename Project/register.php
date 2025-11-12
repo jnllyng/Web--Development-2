@@ -5,21 +5,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username']);
     $email = trim($_POST['email']);
     $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
 
-    $stmt = $db->prepare("SELECT * FROM users WHERE username = ? OR email = ?");
-    $stmt->execute([$username, $email]);
-    $existingUser = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if ($existingUser) {
-        $error = "Username or email already exists!";
+    if ($password !== $confirm_password) {
+        $error = "Passwords do not match. Please try again.";
     } else {
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $stmt = $db->prepare("INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, 'user')");
-        if ($stmt->execute([$username, $email, $hashedPassword])) {
-            header("Location: login.php");
-            exit;
+        $stmt = $db->prepare("SELECT * FROM users WHERE username = ? OR email = ?");
+        $stmt->execute([$username, $email]);
+        $existingUser = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($existingUser) {
+            $error = "Username or email already exists.";
         } else {
-            $error = "Registration failed. Try again.";
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+            $stmt = $db->prepare("INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, 'user')");
+            if ($stmt->execute([$username, $email, $hashedPassword])) {
+                header("Location: login.php");
+                exit;
+            } else {
+                $error = "Registration failed. Try again.";
+            }
         }
     }
 }
@@ -43,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <?php if (!empty($error)): ?>
-                <p class="form-error"><?=$error; ?></p>
+                <p class="form-error"><?= htmlspecialchars($error); ?></p>
             <?php endif; ?>
 
             <form method="POST" action="register.php" class="register-form">
@@ -55,6 +60,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
+
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
 
                 <button type="submit">Register</button>
             </form>
