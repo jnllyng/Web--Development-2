@@ -12,7 +12,7 @@ if (!isset($_GET['id'])) {
     exit;
 }
 
-$id = intval($_GET['id']); 
+$id = intval($_GET['id']);
 $stmt = $db->prepare("SELECT * FROM users WHERE user_id = ?");
 $stmt->execute([$id]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -53,21 +53,21 @@ if (isset($_SESSION['message'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit User</title>
     <link rel="stylesheet" href="../css/admin.css">
 </head>
+
 <body>
     <h1>Edit User</h1>
-    <p class="back"><a href="user_list.php">← Back to Dashboard</a></p>
-
     <?php if ($message): ?>
         <p><?= htmlspecialchars($message); ?></p>
     <?php endif; ?>
 
-    <form method="POST">
+    <form method="POST" class="comment-edit-form">
         <label>Username:</label>
         <input type="text" name="username" value="<?= htmlspecialchars($user['username']); ?>" required><br><br>
 
@@ -83,8 +83,12 @@ if (isset($_SESSION['message'])) {
             <option value="admin" <?= $user['role'] === 'admin' ? 'selected' : '' ?>>Admin</option>
         </select>
         <br><br>
+        <div class="actions">
+            <button type="submit">Update</button>
+            <a href="user_list.php" class="back">Cancel</a>
+        </div>
 
-        <button type="submit">Update User</button>
     </form>
 </body>
+
 </html>

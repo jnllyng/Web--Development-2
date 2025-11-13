@@ -30,16 +30,16 @@ require('includes/db_connect.php');
                 <h2>Featured Species</h2>
                 <div class="species-grid">
                     <article class="species-card">
-                        <img src="" alt="Sample Animal">
-                        <h3>Animal</h3>
-                        <p>Short Description</p>
-                        <a href="species_details.php?category=Animal">Learn More</a>
+                        <img src="uploads/species/Arctic Fox.webp" alt="Sample Animal">
+                        <h3>Arctic Fox</h3>
+                        <p>Vulpes lagopus</p>
+                        <a href="species_details.php?id=531">Learn More</a>
                     </article>
                     <article class="species-card">
-                        <img src="" alt="Sample Plant">
-                        <h3>Plant</h3>
-                        <p>Short Description</p>
-                        <a href="species_details.php?category=Plant">Learn More</a>
+                        <img src="uploads/species/Rose.jpg" alt="Sample Plant">
+                        <h3>Rose</h3>
+                        <p>Rosa x dulcissima</p>
+                        <a href="species_details.php?id=3765">Learn More</a>
                     </article>
                 </div>
             </div>

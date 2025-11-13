@@ -26,7 +26,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <ul class="main-menu-list">
                 <li class="main-menu-item"><a href="animal.php">Animal</a></li>
                 <li class="main-menu-item"><a href="plant.php">Plant</a></li>
-                <li class="main-menu-item"><a href="gallery.php">Photo</a></li>
+                <li class="main-menu-item"><a href="gallery.php">Gallery</a></li>
             </ul>
         </nav>
         <form method="get" action="search.php" class="sitesearch-form">

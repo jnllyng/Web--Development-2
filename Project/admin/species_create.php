@@ -14,16 +14,16 @@ if (isset($_SESSION['message'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $category = $_POST['category'];
+    $type = $_POST['type'];
     $family = trim($_POST['family']);
     $taxonomy = trim($_POST['taxonomy']);
     $scientific_name = trim($_POST['scientific_name']);
     $common_name = trim($_POST['common_name']);
     $status = $_POST['status'];
-    $stmt = $db->prepare("INSERT INTO species (category, family, taxonomy, scientific_name, common_name, status)
+    $stmt = $db->prepare("INSERT INTO category (type, family, taxonomy, scientific_name, common_name, status)
                           VALUES (?, ?, ?, ?, ?, ?)");
-    if ($stmt->execute([$category, $family, $taxonomy, $scientific_name, $common_name, $status])) {
-        $species_id = $db->lastInsertId();
+    if ($stmt->execute([$type, $family, $taxonomy, $scientific_name, $common_name, $status])) {
+        $category_id = $db->lastInsertId();
 
         if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
             $upload_dir = '../uploads/species/';
@@ -35,8 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $target_file = $upload_dir . $filename;
 
             if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
-                $stmt_img = $db->prepare("INSERT INTO photos (species_id, photo_url) VALUES (?, ?)");
-                $stmt_img->execute([$species_id, $filename]);
+                $stmt_img = $db->prepare("INSERT INTO photos (category_id, photo_url) VALUES (?, ?)");
+                $stmt_img->execute([$category_id, $filename]);
             }
         }
 
