@@ -15,7 +15,7 @@ if (!$comment_id || !$action) {
     exit;
 }
 
-$stmt = $db->prepare("SELECT category_id FROM comments WHERE comment_id = ?");
+$stmt = $db->prepare("SELECT species_id FROM comments WHERE comment_id = ?");
 $stmt->execute([$comment_id]);
 $comment = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -24,7 +24,7 @@ if (!$comment) {
     exit;
 }
 
-$category_id = $comment['category_id'];
+$species_id = $comment['species_id'];
 
 if ($action === 'hide') {
     $stmt = $db->prepare("UPDATE comments SET visible = 0 WHERE comment_id = ?");
@@ -37,5 +37,5 @@ if ($action === 'hide') {
 
 $stmt->execute([$comment_id]);
 
-header("Location: ../species_details.php?id=$category_id");
+header("Location: ../species_details.php?id=$species_id");
 exit;

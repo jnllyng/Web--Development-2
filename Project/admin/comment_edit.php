@@ -14,10 +14,10 @@ if (!$comment_id) {
     exit;
 }
 
-$stmt = $db->prepare("SELECT c.*, u.username AS logged_username, cat.common_name
+$stmt = $db->prepare("SELECT c.*, u.username AS logged_username, s.common_name
                       FROM comments c
                       LEFT JOIN users u ON c.user_id = u.user_id
-                      LEFT JOIN categories cat ON c.category_id = cat.category_id
+                      LEFT JOIN species s ON c.species_id = s.species_id
                       WHERE c.comment_id = ?");
 $stmt->execute([$comment_id]);
 $comment = $stmt->fetch(PDO::FETCH_ASSOC);
