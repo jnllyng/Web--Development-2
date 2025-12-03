@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt_update = $db->prepare("UPDATE photos SET photo_url = ? WHERE photo_id = ?");
         $stmt_update->execute([$new_url, $photo_id]);
         $message = "Photo updated successfully!";
-        header("Location: species_details.php?id=" . $photo['category_id']);
+        header("Location: species_details.php?id=" . $photo['species_id']);
         exit;
     } else {
         $message = "Invalid URL.";
@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit">Update</button>
     </form>
 
-    <p><a href="species_details.php?id=<?= $photo['category_id'] ?>">← Back to Species Details</a></p>
+    <p><a href="species_details.php?id=<?= $photo['species_id'] ?>">← Back to Species Details</a></p>
 </main>
 
 <?php include('includes/footer.php'); ?>
