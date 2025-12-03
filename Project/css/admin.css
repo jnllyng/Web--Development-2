@@ -254,3 +254,149 @@ textarea {
 .comment-edit-form .info p {
     margin: 5px 0;
 }
+.category-table-wrapper {
+    width: 90%;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.category-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.category-table th,
+.category-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.category-table th {
+    background-color: #2e7d32;
+    color: white;
+}
+
+.category-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.category-table tr:hover {
+    background-color: #e1f5fe;
+}
+
+.category-actions a {
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.category-actions .edit-category {
+    background-color: #2e7d32;
+    color: white;
+}
+
+.category-actions .edit-category:hover {
+    background-color: #1b5e20;
+}
+
+.category-actions .delete-category {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.category-actions .delete-category:hover {
+    background-color: #c0392b;
+}
+
+.add-category-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: #2e7d32;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 15px auto;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.add-category-btn:hover {
+    background-color: #1b5e20;
+}
+
+.category-form {
+    width: 50%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.category-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.category-form input[type="text"] {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.category-form button {
+    background-color: #2e7d32;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.category-form button:hover {
+    background-color: #1b5e20;
+}
+
+.category-form .back {
+    padding: 10px 20px;
+    background-color: #ccc;
+    color: black;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.category-form .back:hover {
+    background-color: #aaa;
+}
+
+.category-top-links {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.category-top-links a {
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #2e7d32;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.category-top-links a:hover {
+    background-color: #1b5e20;
+}
