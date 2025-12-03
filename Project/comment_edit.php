@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($content) {
         $stmt_update = $db->prepare("UPDATE comments SET content = ? WHERE comment_id = ?");
         $stmt_update->execute([$content, $comment_id]);
-        header("Location: species_details.php?id=" . $comment['category_id']);
+        header("Location: species_details.php?id=" . $comment['species_id']);
         exit;
     }
 }
@@ -42,6 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <textarea name="content" rows="4" required><?= htmlspecialchars($comment['content']) ?></textarea><br>
     <button type="submit">Update Comment</button>
 </form>
-<p><a href="species_details.php?id=<?= $comment['category_id'] ?>">Cancel</a></p>
+<p><a href="species_details.php?id=<?= $comment['species_id'] ?>">Cancel</a></p>
 </body>
 </html>
