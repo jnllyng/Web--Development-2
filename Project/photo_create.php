@@ -8,8 +8,8 @@ if (!$user_id) {
     exit;
 }
 
-$category_id = $_GET['category_id'] ?? null;
-if (!$category_id) {
+$species_id = $_GET['species_id'] ?? null;
+if (!$species_id) {
     echo "Invalid species ID.";
     exit;
 }
@@ -31,14 +31,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['photos'])) {
         $target_file = $upload_dir . $new_file_name;
 
         if (move_uploaded_file($tmp_name, $target_file)) {
-            $stmt = $db->prepare("INSERT INTO photos (category_id, user_id, photo_url, upload_date) VALUES (?, ?, ?, NOW())");
-            $stmt->execute([$category_id, $user_id, $target_file]);
+            $stmt = $db->prepare("INSERT INTO photos (species_id, user_id, photo_url, upload_date) VALUES (?, ?, ?, NOW())");
+            $stmt->execute([$species_id, $user_id, $target_file]);
             $uploaded_count++;
         }
     }
 
     $message = $uploaded_count > 0 ? "$uploaded_count photos uploaded successfully!" : "No valid photos were uploaded.";
-    header("Location: species_details.php?id=" . $category_id);
+    header("Location: species_details.php?id=" . $species_id);
     exit;
 }
 ?>
@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['photos'])) {
         <button type="submit">Upload</button>
     </form>
 
-    <p><a href="species_details.php?id=<?= $category_id ?>">← Back to Species Details</a></p>
+    <p><a href="species_details.php?id=<?= $species_id ?>">← Back to Species Details</a></p>
 </main>
 
 <?php include('includes/footer.php'); ?>

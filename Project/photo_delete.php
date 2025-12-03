@@ -23,6 +23,6 @@ if ($photo) {
     $stmt_del->execute([$photo_id]);
 }
 
-header("Location: species_details.php?id=" . $photo['category_id']);
+header("Location: species_details.php?id=" . $photo['species_id']);
 exit;
 ?>
